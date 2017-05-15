@@ -119,7 +119,7 @@
             <objects>
                 <navigationController id="gK4-b3-w1b" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Set Time" image="setting.png" selectedImage="setting.png" id="wSz-xc-L2A"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5sn-hF-s0J">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5sn-hF-s0J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -987,7 +987,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9v2-8B-EtM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Time Now" image="clock" selectedImage="clock" id="esS-AA-sk8"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Cn1-tx-k0k">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cn1-tx-k0k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1005,7 +1005,7 @@
             <objects>
                 <navigationController storyboardIdentifier="cityTable" automaticallyAdjustsScrollViewInsets="NO" id="wtG-jc-bQR" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4dt-he-jEa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4dt-he-jEa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
