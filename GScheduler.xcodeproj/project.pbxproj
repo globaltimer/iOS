@@ -17,7 +17,6 @@
 		440223931DF3689A00774C30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 440223911DF3689A00774C30 /* LaunchScreen.storyboard */; };
 		4402239D1DF3691200774C30 /* TimeNowViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4402239C1DF3691200774C30 /* TimeNowViewCell.swift */; };
 		440223A51DF3A28F00774C30 /* CityListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440223A41DF3A28F00774C30 /* CityListTableViewController.swift */; };
-		440223A71DF3B8D200774C30 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440223A61DF3B8D200774C30 /* City.swift */; };
 		440223AA1DF4033900774C30 /* memo in Resources */ = {isa = PBXBuildFile; fileRef = 440223A91DF4033900774C30 /* memo */; };
 		4446B1B81E78954B0058B55D /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4446B1B71E78954B0058B55D /* DateUtils.swift */; };
 		446E7C321DF5CC6700E5D3E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 446E7C311DF5CC6700E5D3E5 /* Images.xcassets */; };
@@ -35,6 +34,7 @@
 		44DA6E1D1DF53F3F00417140 /* TaskRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DA6E1C1DF53F3F00417140 /* TaskRegisterViewController.swift */; };
 		44EB46321EC97C7A0089C62F /* Megrim.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44EB46301EC97C7A0089C62F /* Megrim.ttf */; };
 		44EB46331EC97C7A0089C62F /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44EB46311EC97C7A0089C62F /* Quicksand-Regular.ttf */; };
+		44EB46371EC98E230089C62F /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440223A61DF3B8D200774C30 /* City.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -291,10 +291,10 @@
 			files = (
 				4402238B1DF3689A00774C30 /* TimeNowViewController.swift in Sources */,
 				4446B1B81E78954B0058B55D /* DateUtils.swift in Sources */,
+				44EB46371EC98E230089C62F /* City.swift in Sources */,
 				44CB94471EC8F304003BA1AC /* TeamMemberGithubViewController.swift in Sources */,
 				448ABC2B1E397AFB0005958C /* SetTimeViewController.swift in Sources */,
 				4402239D1DF3691200774C30 /* TimeNowViewCell.swift in Sources */,
-				440223A71DF3B8D200774C30 /* City.swift in Sources */,
 				44DA6E1D1DF53F3F00417140 /* TaskRegisterViewController.swift in Sources */,
 				44008E511EBEF1F40088163A /* LicenseListViewController.swift in Sources */,
 				44CB94431EC8E16C003BA1AC /* TeamSalmonMemberListViewController.swift in Sources */,
