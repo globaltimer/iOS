@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "iconmonstr-gear-10-32.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "information (2).png",
+      "filename" : "iconmonstr-gear-10-64.png",
       "scale" : "2x"
     },
     {

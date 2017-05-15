@@ -118,7 +118,7 @@
         <scene sceneID="ANy-6q-u42">
             <objects>
                 <navigationController id="gK4-b3-w1b" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Set Time" image="setting.png" selectedImage="setting.png" id="wSz-xc-L2A"/>
+                    <tabBarItem key="tabBarItem" title="Set Time" image="setting" selectedImage="setting" id="wSz-xc-L2A"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5sn-hF-s0J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -540,15 +540,15 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yq5-Oj-gAp">
-                                        <rect key="frame" x="341" y="42" width="16" height="22"/>
-                                        <state key="normal" image="pencil.png"/>
+                                        <rect key="frame" x="333" y="41" width="24" height="24"/>
+                                        <state key="normal" image="pencil"/>
                                         <connections>
                                             <action selector="tap:" destination="WOX-4z-qbf" eventType="touchUpInside" id="pjb-cJ-mZz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyw-X3-5Rz">
-                                        <rect key="frame" x="341" y="91" width="16" height="22"/>
-                                        <state key="normal" image="pencil.png"/>
+                                        <rect key="frame" x="333" y="90" width="24" height="24"/>
+                                        <state key="normal" image="pencil"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80392156862745101" green="0.80392156862745101" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
@@ -648,6 +648,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="GLOBAL CLOCK" id="gpZ-6y-Y1o">
                         <barButtonItem key="leftBarButtonItem" image="info" id="gvk-5q-9TT">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="Iv1-j2-AaU" kind="show" id="rek-oC-128"/>
                             </connections>
@@ -1021,9 +1022,9 @@
     </scenes>
     <resources>
         <image name="GitHub" width="32" height="32"/>
-        <image name="clock" width="24" height="24"/>
-        <image name="info" width="12" height="12"/>
-        <image name="pencil.png" width="16" height="16"/>
-        <image name="setting.png" width="24" height="24"/>
+        <image name="clock" width="32" height="32"/>
+        <image name="info" width="48" height="48"/>
+        <image name="pencil" width="24" height="24"/>
+        <image name="setting" width="32" height="32"/>
     </resources>
 </document>
