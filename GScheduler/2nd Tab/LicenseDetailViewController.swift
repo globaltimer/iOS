@@ -18,8 +18,8 @@ class LicenseDetailViewController: UIViewController {
         
         super.viewDidLoad()
         
-        self.title      = name
-        self.myLicense.text  = license
+        self.title = name
+        self.myLicense.text = license
         
     }
     
@@ -28,7 +28,7 @@ class LicenseDetailViewController: UIViewController {
         
         let frame = CGSize(width: self.myLicense.frame.size.width, height: CGFloat.greatestFiniteMagnitude)
         
-        myHeight.constant = myLicense.sizeThatFits(frame).height
+        myHeight.constant = myLicense.sizeThatFits(frame).height + 950
         
         view.layoutIfNeeded()
     }
