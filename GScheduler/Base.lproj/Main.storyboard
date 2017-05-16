@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1126.875" y="136.26760563380282"/>
+            <point key="canvasLocation" x="1140" y="-146"/>
         </scene>
         <!--Set Time-->
         <scene sceneID="ANy-6q-u42">
@@ -129,7 +129,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dd5-Gj-G1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348" y="950"/>
+            <point key="canvasLocation" x="348" y="1153"/>
         </scene>
         <!--Time by Task-->
         <scene sceneID="GPa-PX-JsF">
@@ -399,7 +399,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNW-N1-n4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2708" y="138"/>
+            <point key="canvasLocation" x="2722" y="-144"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="W6z-Mt-jJu">
@@ -517,7 +517,6 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.88000846740000005" green="1" blue="0.40411795189999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="3xk-8J-bof" firstAttribute="leading" secondItem="xCS-dF-akZ" secondAttribute="trailing" constant="29" id="0L8-me-VJa"/>
                                             <constraint firstItem="9sU-hQ-eHA" firstAttribute="top" secondItem="TdH-Ov-M18" secondAttribute="top" id="470-Tz-aXp"/>
@@ -667,9 +666,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4JO-W7-8jH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1125.5999999999999" y="949.47526236881572"/>
+            <point key="canvasLocation" x="1126" y="1153"/>
         </scene>
-        <!--About-->
+        <!--Title-->
         <scene sceneID="cLd-lr-LJb">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="Iv1-j2-AaU" customClass="AboutViewController" customModule="GScheduler" customModuleProvider="target" sceneMemberID="viewController">
@@ -693,14 +692,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Global Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egd-Va-cHb">
-                                                    <rect key="frame" x="138" y="19" width="98" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="137" y="19" width="100.5" height="21.5"/>
+                                                    <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ver. Aji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVs-Re-PHT">
-                                                    <rect key="frame" x="161" y="69" width="53" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="161.5" y="69.5" width="52" height="21.5"/>
+                                                    <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -723,7 +722,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="License" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NNg-Ub-P7k">
                                                     <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -741,7 +740,13 @@
                             <constraint firstItem="1J5-9e-KY5" firstAttribute="leading" secondItem="3HB-pS-7el" secondAttribute="leading" id="tJT-wG-t5D"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="About" id="dug-ha-fMJ"/>
+                    <navigationItem key="navigationItem" title="Title" id="ACb-NU-xa0">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="1ad-PB-1Qs">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="Iv1-j2-AaU" id="Eax-bw-d5L"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="1J5-9e-KY5" id="k0Y-2k-7oq"/>
                         <segue destination="7O6-g0-dQn" kind="show" identifier="toLicense" id="aHx-zM-vHd"/>
@@ -750,7 +755,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ZE-64-u8E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2920.8000000000002" y="948.57571214392806"/>
+            <point key="canvasLocation" x="2921" y="1152"/>
         </scene>
         <!--License-->
         <scene sceneID="lqD-Ou-UOd">
@@ -778,7 +783,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vbW-1q-hvi">
                                                     <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -804,7 +809,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYU-0D-C3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3788" y="949"/>
+            <point key="canvasLocation" x="3788" y="547"/>
         </scene>
         <!--Team Salmon-->
         <scene sceneID="cq0-fi-KJ9">
@@ -841,11 +846,11 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKe-Db-X5z">
-                                                    <rect key="frame" x="8" y="20.5" width="114" height="20.5"/>
+                                                    <rect key="frame" x="8" y="19.5" width="114" height="21.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="114" id="gje-CB-Mx2"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -883,7 +888,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpl-Hy-2Xz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3788" y="1728.4857571214395"/>
+            <point key="canvasLocation" x="3788" y="1469"/>
         </scene>
         <!--Team Member Github View Controller-->
         <scene sceneID="jWA-0z-Z4J">
@@ -916,7 +921,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNW-iG-nvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4564" y="1727.5862068965519"/>
+            <point key="canvasLocation" x="4564" y="1469"/>
         </scene>
         <!--License Detail-->
         <scene sceneID="HTT-Mt-rFd">
@@ -934,12 +939,12 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLR-eJ-8TP">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="616"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="316"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijE-6u-Jku">
-                                                <rect key="frame" x="8" y="8" width="359" height="600"/>
+                                                <rect key="frame" x="8" y="8" width="359" height="300"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="600" id="HKq-Qm-u13"/>
+                                                    <constraint firstAttribute="height" constant="300" id="HKq-Qm-u13"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -980,7 +985,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6J-Qf-Fck" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4564" y="949"/>
+            <point key="canvasLocation" x="4564" y="547"/>
         </scene>
         <!--Time Now-->
         <scene sceneID="DtI-jG-16q">
@@ -999,7 +1004,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hiD-qN-fEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="335" y="139"/>
+            <point key="canvasLocation" x="348" y="-143"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yrv-xu-KKh">
@@ -1017,7 +1022,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ves-1y-FSw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1982" y="138"/>
+            <point key="canvasLocation" x="1996" y="-144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="91c-r2-bp9">
@@ -1035,7 +1040,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xde-mG-3Ax" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1981.5999999999999" y="948.57571214392806"/>
+            <point key="canvasLocation" x="1982" y="1152"/>
         </scene>
     </scenes>
     <resources>

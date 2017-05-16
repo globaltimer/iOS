@@ -80,10 +80,14 @@ class AboutViewController: UIViewController, UITableViewDelegate, UITableViewDat
             } else if indexPath.row == 1 {
                 self.performSegue(withIdentifier: "toTeamMember", sender: nil)
             }
-            
         }
-        
     }
+    
+    
+    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     
 }

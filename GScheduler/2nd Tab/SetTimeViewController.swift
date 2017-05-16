@@ -173,7 +173,7 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let minusOrPlus  = diff >= 0 ? "+ " : "- "
         let diffDay      = "\(day)day "
-        let diffHour     = "\(hour):"
+        let diffHour     = "\(abs(hour)):"
         let diffMinutes  = String(format: "%02d", abs(min))
         let pastOrFuture = diff >= 0 ? " in the future" : " in the past"
 
