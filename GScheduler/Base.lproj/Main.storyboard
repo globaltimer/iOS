@@ -650,7 +650,7 @@
                         <barButtonItem key="leftBarButtonItem" image="info" id="gvk-5q-9TT">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="Iv1-j2-AaU" kind="show" id="rek-oC-128"/>
+                                <segue destination="Iv1-j2-AaU" kind="presentation" id="rek-oC-128"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -682,7 +682,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1J5-9e-KY5">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutApp" rowHeight="110" id="cms-IM-b69">
@@ -699,7 +699,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ver. Aji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVs-Re-PHT">
-                                                    <rect key="frame" x="166" y="69" width="53" height="21"/>
+                                                    <rect key="frame" x="161" y="69" width="53" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -709,7 +709,7 @@
                                                 <constraint firstItem="egd-Va-cHb" firstAttribute="top" secondItem="3RK-r1-EqS" secondAttribute="topMargin" constant="11" id="4Cr-lX-vdn"/>
                                                 <constraint firstItem="RVs-Re-PHT" firstAttribute="top" secondItem="egd-Va-cHb" secondAttribute="bottom" constant="29" id="CE6-EK-NT3"/>
                                                 <constraint firstItem="egd-Va-cHb" firstAttribute="centerX" secondItem="3RK-r1-EqS" secondAttribute="centerX" id="Xy4-4V-O4F"/>
-                                                <constraint firstItem="RVs-Re-PHT" firstAttribute="leading" secondItem="3RK-r1-EqS" secondAttribute="leading" constant="166" id="dRq-zf-o1h"/>
+                                                <constraint firstItem="RVs-Re-PHT" firstAttribute="centerX" secondItem="3RK-r1-EqS" secondAttribute="centerX" id="fTo-Fd-MG6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -765,7 +765,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EcS-Jj-F66">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Software" textLabel="vbW-1q-hvi" style="IBUITableViewCellStyleDefault" id="LCn-Ks-0by">
@@ -819,7 +819,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jjt-BW-Dyk">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="memberlist" rowHeight="60" id="oDa-Wx-QsM" customClass="TeamMemberTableViewCell" customModule="GScheduler" customModuleProvider="target">
@@ -931,7 +931,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K3w-DY-F32">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLR-eJ-8TP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="316"/>
@@ -1023,7 +1023,7 @@
     <resources>
         <image name="GitHub" width="32" height="32"/>
         <image name="clock" width="32" height="32"/>
-        <image name="info" width="48" height="48"/>
+        <image name="info" width="24" height="24"/>
         <image name="pencil" width="24" height="24"/>
         <image name="setting" width="32" height="32"/>
     </resources>
