@@ -172,14 +172,12 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
         
         
         let minusOrPlus  = diff >= 0 ? "+ " : "- "
-        let diffDay      = "\(day)day "
+        let diffDay      = day != 0 ? "\(day) day " : ""
         let diffHour     = "\(abs(hour)):"
         let diffMinutes  = String(format: "%02d", abs(min))
         let pastOrFuture = diff >= 0 ? " in the future" : " in the past"
 
         timeAheadLabel.text = minusOrPlus + diffDay + diffHour + diffMinutes + pastOrFuture
-
-        
         
         // テーブル再描画
         tableView.reloadData()
