@@ -203,20 +203,6 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
         
         realm = try! Realm()
         
-        /*
-        let btn = UIBarButtonItem()
-        btn.image = UIImage(named: "info2.png")?
-                    .resizeUIImage(width: 24, height: 24)
-                    .withRenderingMode(.alwaysOriginal)
-        
-        btn.style = .plain
-        btn.action = #selector(SetTimeViewController.showCredit)
-        btn.target = self
- 
-        self.navigationItem.setLeftBarButton(btn, animated: true)
- 
-        */
-        
     }
     
     
@@ -350,6 +336,18 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
         
         
         let datePicker = UIDatePicker()
+        
+        /* ↓ こんなダルいことしなくてよかったんや。。。。。。
+         
+        // 32400 = ロンドンと東京の時差は 32400秒 = 9時間
+        let tz = Double((NSTimeZone(name: cities[pinedCityCell].timeZone)?.secondsFromGMT)!)
+        let boke = Date(timeInterval: tz, since: Date())    // ローカル時間(=バンクーバー)からの差
+        
+        datePicker.date = boke
+        
+        */
+        datePicker.timeZone = TimeZone(identifier: cities[pinedCityCell].timeZone)
+        
         alert.view.addSubview(datePicker)
         
         
@@ -368,19 +366,6 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
         self.present(alert, animated: true, completion: nil)
         
     }
-    
-    
-    /* target action */
-    
-    /*
-    func showCredit() {
-
-        let sb = self.storyboard!
-        let vc = sb.instantiateViewController(withIdentifier: "credit") as! CreditScrollController
-        self.present(vc, animated: true, completion: nil)
-    }
-    */
-    
 }
 
 

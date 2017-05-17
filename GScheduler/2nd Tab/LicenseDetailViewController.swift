@@ -3,9 +3,7 @@ import UIKit
 
 class LicenseDetailViewController: UIViewController {
 
-//    @IBOutlet weak var text: UILabel!
-//    @IBOutlet weak var textHeight: NSLayoutConstraint!
-    
+
     @IBOutlet weak var myLicense: UILabel!
     @IBOutlet weak var myHeight: NSLayoutConstraint!
     
