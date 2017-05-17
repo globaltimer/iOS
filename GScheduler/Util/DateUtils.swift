@@ -32,12 +32,12 @@ class DateUtils {
     }
 
     
-    class func stringFromDate(date: Date, format: String, tz: TimeZone) -> String {
+    class func stringFromDate(date: Date, format: String, tz: NSTimeZone) -> String {
         
         let formatter: DateFormatter = DateFormatter()
         
         formatter.dateFormat = format
-        formatter.timeZone   = tz
+        formatter.timeZone   = tz as TimeZone!
         
         formatter.dateFormat = format
         

@@ -69,7 +69,7 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
             cell.diffGMTLabel.text = DateUtils.stringFromDate(
                 date: Date(),
                 format: "ZZZZ",
-                tz: NSTimeZone(name: filteredCities[indexPath.row].timeZone) as TimeZone!
+                tz: NSTimeZone(name: filteredCities[indexPath.row].timeZone)!
             )
             
             if cell.diffGMTLabel.text == "GMT" {
@@ -92,7 +92,7 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
         cell.diffGMTLabel.text = DateUtils.stringFromDate(
             date: Date(),
             format: "ZZZZ",
-            tz: NSTimeZone(name: cities[indexPath.row].timeZone) as! TimeZone
+            tz: NSTimeZone(name: cities[indexPath.row].timeZone)!
         )
             
         
@@ -133,7 +133,7 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 realm.create(City.self, value: ["id": id, "isSelected": true, "orderNo": orderNo], update: true)
                 
-                print("\(cities.filter("id == \(id)").first?.name) was enrolled!")
+                print("\(String(describing: cities.filter("id == \(id)").first?.name)) was enrolled!")
                 
             } else {  // フィルタされた状態でセルがクリックされた場合
                 

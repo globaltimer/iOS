@@ -98,35 +98,35 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
         MDYLabel.text = DateUtils.stringFromDate(
             date: newtral,
             format: "",
-            tz: NSTimeZone(name: cities[pinedCityCell].timeZone) as! TimeZone
+            tz: NSTimeZone(name: cities[pinedCityCell].timeZone)!
         )
         
         
         timeLabel.text = DateUtils.stringFromDate(
             date: newtral,
             format: "HH:mm",
-            tz: NSTimeZone(name: cities[pinedCityCell].timeZone) as! TimeZone
+            tz: NSTimeZone(name: cities[pinedCityCell].timeZone)!
         )
         
         
         adjustTimeBeforeLabel.text = DateUtils.stringFromDate(
             date: before30m,
             format: "HH:mm",
-            tz: NSTimeZone(name: cities[pinedCityCell].timeZone) as! TimeZone
+            tz: NSTimeZone(name: cities[pinedCityCell].timeZone)!
         )
         
         
         adjustTimeNowLabel.text = DateUtils.stringFromDate(
             date: newtral,
             format: "HH:mm",
-            tz: NSTimeZone(name: cities[pinedCityCell].timeZone) as! TimeZone
+            tz: NSTimeZone(name: cities[pinedCityCell].timeZone)!
         )
         
         
         adjustTimeAheadLabel.text = DateUtils.stringFromDate(
             date: after30m,
             format: "HH:mm",
-            tz: NSTimeZone(name: cities[pinedCityCell].timeZone) as! TimeZone
+            tz: NSTimeZone(name: cities[pinedCityCell].timeZone)!
         )
         
         
@@ -278,13 +278,13 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.yearAndMonthLabel.text = DateUtils.stringFromDate(
             date: self.fixedTime,
             format: "",
-            tz: NSTimeZone(name: cities[indexPath.row].timeZone) as! TimeZone
+            tz: NSTimeZone(name: cities[indexPath.row].timeZone)!
         )
 
         cell.timeLabel.text = DateUtils.stringFromDate(
             date: self.fixedTime,
             format: "HH:mm",
-            tz: NSTimeZone(name: cities[indexPath.row].timeZone) as! TimeZone
+            tz: NSTimeZone(name: cities[indexPath.row].timeZone)!
         )
 
         cell.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)

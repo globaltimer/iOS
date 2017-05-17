@@ -150,14 +150,14 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.DayYearLabel.text  = DateUtils.stringFromDate(
             date: GMT,
             format: "",
-            tz: NSTimeZone(name: cities[indexPath.row].timeZone) as! TimeZone
+            tz: NSTimeZone(name: cities[indexPath.row].timeZone)!
         )
 
         
         cell.timeLabel.text = DateUtils.stringFromDate(
             date: GMT,
             format: "HH:mm",
-            tz: NSTimeZone(name: cities[indexPath.row].timeZone) as! TimeZone
+            tz: NSTimeZone(name: cities[indexPath.row].timeZone)!
         )
 
         cell.timeLabel.kern(kerningValue: 2)
