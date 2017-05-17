@@ -29,9 +29,7 @@
 		44CB94471EC8F304003BA1AC /* TeamMemberGithubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB94461EC8F304003BA1AC /* TeamMemberGithubViewController.swift */; };
 		44CB944F1EC91C9E003BA1AC /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CB944D1EC91C9E003BA1AC /* Realm.framework */; };
 		44CB94501EC91C9E003BA1AC /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CB944E1EC91C9E003BA1AC /* RealmSwift.framework */; };
-		44DA6E151DF52D4900417140 /* RegisteredTaskTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DA6E141DF52D4900417140 /* RegisteredTaskTimeViewController.swift */; };
 		44DA6E191DF53A5700417140 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DA6E181DF53A5700417140 /* Task.swift */; };
-		44DA6E1D1DF53F3F00417140 /* TaskRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DA6E1C1DF53F3F00417140 /* TaskRegisterViewController.swift */; };
 		44EB46321EC97C7A0089C62F /* Megrim.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44EB46301EC97C7A0089C62F /* Megrim.ttf */; };
 		44EB46331EC97C7A0089C62F /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44EB46311EC97C7A0089C62F /* Quicksand-Regular.ttf */; };
 		44EB46371EC98E230089C62F /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440223A61DF3B8D200774C30 /* City.swift */; };
@@ -63,9 +61,7 @@
 		44CB94461EC8F304003BA1AC /* TeamMemberGithubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamMemberGithubViewController.swift; sourceTree = "<group>"; };
 		44CB944D1EC91C9E003BA1AC /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		44CB944E1EC91C9E003BA1AC /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		44DA6E141DF52D4900417140 /* RegisteredTaskTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteredTaskTimeViewController.swift; sourceTree = "<group>"; };
 		44DA6E181DF53A5700417140 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		44DA6E1C1DF53F3F00417140 /* TaskRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskRegisterViewController.swift; sourceTree = "<group>"; };
 		44EB46301EC97C7A0089C62F /* Megrim.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Megrim.ttf; sourceTree = "<group>"; };
 		44EB46311EC97C7A0089C62F /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,7 +106,6 @@
 				440223A81DF3E05600774C30 /* Model */,
 				44DA6E1A1DF53EF800417140 /* 1st Tab */,
 				448ABC291E397AC60005958C /* 2nd Tab */,
-				44DA6E1B1DF53F1800417140 /* 3rd Tab */,
 				44C5187C1E67F4010050CA61 /* CityNameSeed.csv */,
 				440223911DF3689A00774C30 /* LaunchScreen.storyboard */,
 				440223941DF3689A00774C30 /* Info.plist */,
@@ -172,15 +167,6 @@
 				449259B01E4C2904006B9AAD /* CityListViewCell.swift */,
 			);
 			path = "1st Tab";
-			sourceTree = "<group>";
-		};
-		44DA6E1B1DF53F1800417140 /* 3rd Tab */ = {
-			isa = PBXGroup;
-			children = (
-				44DA6E141DF52D4900417140 /* RegisteredTaskTimeViewController.swift */,
-				44DA6E1C1DF53F3F00417140 /* TaskRegisterViewController.swift */,
-			);
-			path = "3rd Tab";
 			sourceTree = "<group>";
 		};
 		44EB462F1EC97C4E0089C62F /* Font */ = {
@@ -295,11 +281,9 @@
 				44CB94471EC8F304003BA1AC /* TeamMemberGithubViewController.swift in Sources */,
 				448ABC2B1E397AFB0005958C /* SetTimeViewController.swift in Sources */,
 				4402239D1DF3691200774C30 /* TimeNowViewCell.swift in Sources */,
-				44DA6E1D1DF53F3F00417140 /* TaskRegisterViewController.swift in Sources */,
 				44008E511EBEF1F40088163A /* LicenseListViewController.swift in Sources */,
 				44CB94431EC8E16C003BA1AC /* TeamSalmonMemberListViewController.swift in Sources */,
 				449259B11E4C2904006B9AAD /* CityListViewCell.swift in Sources */,
-				44DA6E151DF52D4900417140 /* RegisteredTaskTimeViewController.swift in Sources */,
 				440223891DF3689A00774C30 /* AppDelegate.swift in Sources */,
 				44008E4F1EBEEBA20088163A /* AboutViewController.swift in Sources */,
 				44DA6E191DF53A5700417140 /* Task.swift in Sources */,
