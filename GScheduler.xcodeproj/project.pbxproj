@@ -23,6 +23,7 @@
 		448ABC2B1E397AFB0005958C /* SetTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448ABC2A1E397AFB0005958C /* SetTimeViewController.swift */; };
 		448ABC301E397F350005958C /* SetTimeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448ABC2F1E397F350005958C /* SetTimeViewCell.swift */; };
 		449259B11E4C2904006B9AAD /* CityListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449259B01E4C2904006B9AAD /* CityListViewCell.swift */; };
+		44A703DC1ECCD14800107396 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A703DB1ECCD14800107396 /* Default-568h@2x.png */; };
 		44C5187D1E67F4010050CA61 /* CityNameSeed.csv in Resources */ = {isa = PBXBuildFile; fileRef = 44C5187C1E67F4010050CA61 /* CityNameSeed.csv */; };
 		44CB94431EC8E16C003BA1AC /* TeamSalmonMemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB94421EC8E16C003BA1AC /* TeamSalmonMemberListViewController.swift */; };
 		44CB94451EC8EBF1003BA1AC /* TeamMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB94441EC8EBF1003BA1AC /* TeamMemberTableViewCell.swift */; };
@@ -45,7 +46,7 @@
 		4402238A1DF3689A00774C30 /* TimeNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeNowViewController.swift; sourceTree = "<group>"; };
 		4402238D1DF3689A00774C30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		440223921DF3689A00774C30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		440223941DF3689A00774C30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		440223941DF3689A00774C30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		4402239C1DF3691200774C30 /* TimeNowViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeNowViewCell.swift; sourceTree = "<group>"; };
 		440223A41DF3A28F00774C30 /* CityListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListTableViewController.swift; sourceTree = "<group>"; };
 		440223A61DF3B8D200774C30 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -55,6 +56,7 @@
 		448ABC2A1E397AFB0005958C /* SetTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimeViewController.swift; sourceTree = "<group>"; };
 		448ABC2F1E397F350005958C /* SetTimeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimeViewCell.swift; sourceTree = "<group>"; };
 		449259B01E4C2904006B9AAD /* CityListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListViewCell.swift; sourceTree = "<group>"; };
+		44A703DB1ECCD14800107396 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		44C5187C1E67F4010050CA61 /* CityNameSeed.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CityNameSeed.csv; sourceTree = "<group>"; };
 		44CB94421EC8E16C003BA1AC /* TeamSalmonMemberListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSalmonMemberListViewController.swift; sourceTree = "<group>"; };
 		44CB94441EC8EBF1003BA1AC /* TeamMemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamMemberTableViewCell.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		4402237C1DF3689A00774C30 = {
 			isa = PBXGroup;
 			children = (
+				44A703DB1ECCD14800107396 /* Default-568h@2x.png */,
 				440223871DF3689A00774C30 /* GScheduler */,
 				440223861DF3689A00774C30 /* Products */,
 				44CB944C1EC91C9C003BA1AC /* Frameworks */,
@@ -249,6 +252,7 @@
 			files = (
 				44EB46321EC97C7A0089C62F /* Megrim.ttf in Resources */,
 				44EB46331EC97C7A0089C62F /* Quicksand-Regular.ttf in Resources */,
+				44A703DC1ECCD14800107396 /* Default-568h@2x.png in Resources */,
 				440223931DF3689A00774C30 /* LaunchScreen.storyboard in Resources */,
 				44008E4B1EBEE67C0088163A /* Licenses.plist in Resources */,
 				446E7C321DF5CC6700E5D3E5 /* Images.xcassets in Resources */,
