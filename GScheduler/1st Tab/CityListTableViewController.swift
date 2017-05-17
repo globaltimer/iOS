@@ -211,6 +211,7 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
+    /*
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         filteredCities = []
@@ -224,11 +225,27 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
         
         tableView.reloadData()
     }
+    */
     
     
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
-        print("hogehoge")
+        filteredCities = []
+        
+        // let searchWord = searchBar.text
+        
+        let searchWord = searchBar.text
+        
+        
+        // 小文字・大文字を無視して検索
+        filteredCities = cities.filter{ $0.name.lowercased().contains((searchWord?.lowercased())!) }
+        
+        print("まず、filteredCitiesのフィルタリングが行われる")
+        
+        tableView.reloadData()
+        
+        
+        
         return true
         
     }
