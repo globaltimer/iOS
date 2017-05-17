@@ -100,17 +100,14 @@
 			isa = PBXGroup;
 			children = (
 				440223881DF3689A00774C30 /* AppDelegate.swift */,
+				440223911DF3689A00774C30 /* LaunchScreen.storyboard */,
 				4402238C1DF3689A00774C30 /* Main.storyboard */,
+				44A703DA1ECCCF5D00107396 /* Resources */,
 				44EB462F1EC97C4E0089C62F /* Font */,
 				4446B1B61E7895310058B55D /* Utils */,
 				440223A81DF3E05600774C30 /* Model */,
 				44DA6E1A1DF53EF800417140 /* 1st Tab */,
 				448ABC291E397AC60005958C /* 2nd Tab */,
-				44C5187C1E67F4010050CA61 /* CityNameSeed.csv */,
-				440223911DF3689A00774C30 /* LaunchScreen.storyboard */,
-				440223941DF3689A00774C30 /* Info.plist */,
-				44008E4A1EBEE67C0088163A /* Licenses.plist */,
-				440223A91DF4033900774C30 /* memo */,
 				446E7C311DF5CC6700E5D3E5 /* Images.xcassets */,
 			);
 			path = GScheduler;
@@ -147,6 +144,17 @@
 				44008E521EBEF3D90088163A /* LicenseDetailViewController.swift */,
 			);
 			path = "2nd Tab";
+			sourceTree = "<group>";
+		};
+		44A703DA1ECCCF5D00107396 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				440223A91DF4033900774C30 /* memo */,
+				44008E4A1EBEE67C0088163A /* Licenses.plist */,
+				440223941DF3689A00774C30 /* Info.plist */,
+				44C5187C1E67F4010050CA61 /* CityNameSeed.csv */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		44CB944C1EC91C9C003BA1AC /* Frameworks */ = {
