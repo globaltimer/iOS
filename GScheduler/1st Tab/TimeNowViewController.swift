@@ -41,8 +41,6 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
         
         super.viewDidLoad()
         
-        print("hoge")
-        
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         realm = try! Realm()

@@ -226,6 +226,19 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        print("hogehoge")
+        return true
+        
+    }
+    
+    
+    
+    
+    
+    
+    
     // テキストフィールド入力開始前に呼ばれる
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         searchBar.showsCancelButton = true

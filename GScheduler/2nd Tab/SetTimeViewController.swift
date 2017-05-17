@@ -271,46 +271,6 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
-        // case 1: バフ・デバフ != 0
-        
-        /*
-        if adjustTimeStat != 0 {
-            
-            let interval = 60 * 30 * (adjustTimeStat+0)
-            let newtral = Date(timeInterval:  TimeInterval(interval), since: self.fixedTime)
-            
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SetTimeViewCell
-            
-            cell.cityNameLabel.text = cities[indexPath.row].name.uppercased()
-            
-            
-            cell.yearAndMonthLabel.text = DateUtils.stringFromDate(
-                date: newtral,
-                format: "",
-                tz: NSTimeZone(name: cities[indexPath.row].timeZone) as! TimeZone
-            )
-            
-            
-            cell.timeLabel.text = DateUtils.stringFromDate(
-                date: newtral,
-                format: "HH:mm",
-                tz: NSTimeZone(name: cities[indexPath.row].timeZone) as! TimeZone
-            )
-            
-            //cell.timeLabel.textColor = UIColor(red:0.22, green:0.62, blue:0.67, alpha:1.0)
-            
-            cell.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
-            
-            return cell
-            
-        } // 特別時のセル設定 完了
-        */
-        
-        
-        // case 2: バフ・デバフ == 0
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SetTimeViewCell
         
         cell.cityNameLabel.text = cities[indexPath.row].name.uppercased()
@@ -331,6 +291,8 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
 
         return cell
     }
+    
+
     
     
     // セルが削除が可能なことを伝えるメソッド
