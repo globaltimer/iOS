@@ -26,10 +26,11 @@ class LicenseDetailViewController: UIViewController {
         
         let frame = CGSize(width: self.myLicense.frame.size.width, height: CGFloat.greatestFiniteMagnitude)
         
-        myHeight.constant = myLicense.sizeThatFits(frame).height + 950
+        myHeight.constant = myLicense.sizeThatFits(frame).height + 900
         
         view.layoutIfNeeded()
     }
+    
 }
 
 
