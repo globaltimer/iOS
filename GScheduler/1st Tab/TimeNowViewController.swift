@@ -1,14 +1,18 @@
 
-// let vc = self.tabBarController?.viewControllers?[1] as! SetTimeViewController
-
-
-
 import UIKit
 import RealmSwift
 
 extension UILabel {
-    func kern(kerningValue:CGFloat) {
-        self.attributedText =  NSAttributedString(string: self.text ?? "", attributes: [NSKernAttributeName:kerningValue, NSFontAttributeName:font, NSForegroundColorAttributeName:self.textColor])
+    
+    func kern(kerningValue: CGFloat) {
+        
+        self.attributedText = NSAttributedString(
+            string: self.text ?? "",
+            attributes: [NSKernAttributeName: kerningValue,
+                         NSFontAttributeName: font,
+                         NSForegroundColorAttributeName: self.textColor
+                        ]
+        )
     }
 }
 
@@ -16,17 +20,14 @@ extension UILabel {
 class TimeNowViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // GMT標準時刻
-    var GMT: Date! // = Date()
+    var GMT: Date!
     
     var realm: Realm! // = try! Realm()
-
-    // var cities = try! Realm().objects(City.self).filter("isSelected == true").sorted(byKeyPath: "orderNo", ascending: true)
     
     var cities: Results<City>!
     
     // ピンされたcityのセル番号
     var pinedCityCell = 0
-    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var timeLabel: UILabel!
@@ -41,7 +42,8 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
         
         super.viewDidLoad()
         
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        // Realmのパス
+        // print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         realm = try! Realm()
         
@@ -57,19 +59,17 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         
-        // 編集ボタンを左上に配置
-//        if cities.count > 0 {
-        
+
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.leftBarButtonItem?.tintColor = UIColor.white
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(
         [NSFontAttributeName: UIFont(name: "quicksand", size: 18) as Any],
             for: .normal)
-//        }
+
         
         // 初回起動時のみ
         if cities.count == 0 {
-            print("初回起動だと 判定された！！！")
+            print("初回起動です")
             initialEnrollCities()
         }
     }
@@ -78,7 +78,7 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        //
+        
         GMT = Date()
         
         cities = realm.objects(City.self).filter("isSelected == true").sorted(byKeyPath: "orderNo", ascending: true)
@@ -90,18 +90,15 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
-        //
+        
         // ビュー消滅時、編集モードを解除しているけど、ボタンの設定が解除されない
         tableView.isEditing = false
         
-        print("画面1: will disappear")
-        
-        // 現在の ピンされた都市を保存
+        // 現在のピンされた都市を保存
         let ud = UserDefaults.standard
         ud.set(pinedCityCell, forKey: "pinedCityCell")
         ud.synchronize()
         
-        print("シンクロしました")
     }
     
     
@@ -111,14 +108,9 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     @IBAction func rightButtonTapped(_ sender: Any) {
-        
-        // TODO: メモリリークしとる
-        //let vc = storyboard?.instantiateViewController(withIdentifier: "cityTable")
-        //self.present(vc!, animated: true, completion: nil)
-        
-        
-        // ので、なんとかしないと...
+    
         let vc = storyboard?.instantiateViewController(withIdentifier: "cityTable")
+        
         if let vc = vc {
             self.present(vc, animated: true, completion: nil)
         }
@@ -178,13 +170,9 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
-        
         // ピン都市を更新
         pinedCityCell = indexPath.row
         
-        
-    
         tableView.reloadData()
     }
     
@@ -192,11 +180,16 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
     // セルが削除が可能なことを伝えるメソッド
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) ->UITableViewCellEditingStyle {
         
+        /*
         if tableView.isEditing {
             return .delete
         } else {
             return .none
         }
+        */
+        
+        return tableView.isEditing ? .delete : .none
+        
     }
     
     
@@ -212,10 +205,7 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
     // セルの並び替えが発動した時の処理
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         
-        if sourceIndexPath == destinationIndexPath {
-            print("とんだ罠だったな")
-            return
-        }
+        if sourceIndexPath == destinationIndexPath { return }
         
         try! realm.write {
             
@@ -338,11 +328,17 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.isEditing = editing
         
         for cell in tableView.visibleCells {
+            
+            /*
             if tableView.isEditing {
                 (cell as! TimeNowViewCell).timeLabel.isHidden = true
             } else {
                 (cell as! TimeNowViewCell).timeLabel.isHidden = false
             }
+            */
+            
+            (cell as? TimeNowViewCell)?.timeLabel.isHidden = tableView.isEditing ? true : false
+            
         }
     }
     
@@ -358,7 +354,7 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
         var id = 0
         
         // csvを1行ずつ読み込む
-        csvStringData.enumerateLines(invoking: { (line, stop) -> () in
+        csvStringData.enumerateLines{ (line, stop) in
             
             // カンマ区切りで分割
             let cityDataArray = line.components(separatedBy: ",")
@@ -366,7 +362,7 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
                 City(id: id, name: cityDataArray[0], timeZone: cityDataArray[1], isSelected: false)
             )
             id += 1
-        })
+        }
         
         
         try! realm.write {
@@ -420,6 +416,4 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
 } // class
-
-
 

@@ -29,8 +29,6 @@
 		44CB94471EC8F304003BA1AC /* TeamMemberGithubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB94461EC8F304003BA1AC /* TeamMemberGithubViewController.swift */; };
 		44CB944F1EC91C9E003BA1AC /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CB944D1EC91C9E003BA1AC /* Realm.framework */; };
 		44CB94501EC91C9E003BA1AC /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CB944E1EC91C9E003BA1AC /* RealmSwift.framework */; };
-		44DA6E191DF53A5700417140 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DA6E181DF53A5700417140 /* Task.swift */; };
-		44EB46321EC97C7A0089C62F /* Megrim.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44EB46301EC97C7A0089C62F /* Megrim.ttf */; };
 		44EB46331EC97C7A0089C62F /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44EB46311EC97C7A0089C62F /* Quicksand-Regular.ttf */; };
 		44EB46371EC98E230089C62F /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440223A61DF3B8D200774C30 /* City.swift */; };
 /* End PBXBuildFile section */
@@ -61,8 +59,6 @@
 		44CB94461EC8F304003BA1AC /* TeamMemberGithubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamMemberGithubViewController.swift; sourceTree = "<group>"; };
 		44CB944D1EC91C9E003BA1AC /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		44CB944E1EC91C9E003BA1AC /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		44DA6E181DF53A5700417140 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		44EB46301EC97C7A0089C62F /* Megrim.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Megrim.ttf; sourceTree = "<group>"; };
 		44EB46311EC97C7A0089C62F /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				440223A61DF3B8D200774C30 /* City.swift */,
-				44DA6E181DF53A5700417140 /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,7 +175,6 @@
 		44EB462F1EC97C4E0089C62F /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				44EB46301EC97C7A0089C62F /* Megrim.ttf */,
 				44EB46311EC97C7A0089C62F /* Quicksand-Regular.ttf */,
 			);
 			path = Font;
@@ -247,7 +241,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44EB46321EC97C7A0089C62F /* Megrim.ttf in Resources */,
 				44EB46331EC97C7A0089C62F /* Quicksand-Regular.ttf in Resources */,
 				440223931DF3689A00774C30 /* LaunchScreen.storyboard in Resources */,
 				44008E4B1EBEE67C0088163A /* Licenses.plist in Resources */,
@@ -294,7 +287,6 @@
 				449259B11E4C2904006B9AAD /* CityListViewCell.swift in Sources */,
 				440223891DF3689A00774C30 /* AppDelegate.swift in Sources */,
 				44008E4F1EBEEBA20088163A /* AboutViewController.swift in Sources */,
-				44DA6E191DF53A5700417140 /* Task.swift in Sources */,
 				44CB94451EC8EBF1003BA1AC /* TeamMemberTableViewCell.swift in Sources */,
 				448ABC301E397F350005958C /* SetTimeViewCell.swift in Sources */,
 				44008E531EBEF3D90088163A /* LicenseDetailViewController.swift in Sources */,

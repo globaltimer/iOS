@@ -7,7 +7,7 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
         
-    var realm: Realm! // = try! Realm()
+    var realm: Realm!
 
     var cities: Results<City>!
 
@@ -27,10 +27,10 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
 
         cities = realm.objects(City.self).sorted(byKeyPath: "name", ascending: true)
         
-        tableView.delegate = self
+        tableView.delegate   = self
         tableView.dataSource = self
         
-        searchBar.delegate = self
+        searchBar.delegate   = self
         
         searchBar.barTintColor = UIColor(red:0.14, green:0.68, blue:0.73, alpha:1.0)
         
@@ -86,8 +86,6 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
         let cities = self.cities.filter("name BEGINSWITH '\(head_character)'")
         
         cell.cityNameLabel.text =  cities[indexPath.row].name
-        //cell.cityNameLabel.textColor = UIColor(red:0.22, green:0.62, blue:0.67, alpha:1.0)
-        
         
         cell.diffGMTLabel.text = DateUtils.stringFromDate(
             date: Date(),
@@ -100,8 +98,6 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
             cell.diffGMTLabel.text = "GMT ±00:00"
         }
         
-        
-        //cell.diffGMTLabel.textColor = UIColor(red:0.77, green:0.42, blue:0.42, alpha:1.0)
         cell.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
 
         return cell
@@ -162,7 +158,7 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
             return 1
         }
         
-        return sections.count // 26だよ
+        return sections.count // 26
     }
     
     
@@ -211,31 +207,11 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    /*
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        filteredCities = []
-        
-        let searchWord = searchBar.text
-        
-        // 小文字・大文字を無視して検索
-        filteredCities = cities.filter{ $0.name.lowercased().contains((searchWord?.lowercased())!) }
-        
-        print("まず、filteredCitiesのフィルタリングが行われる")
-        
-        tableView.reloadData()
-    }
-    */
-    
-    
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
         filteredCities = []
         
-        // let searchWord = searchBar.text
-        
         let searchWord = searchBar.text
-        
         
         // 小文字・大文字を無視して検索
         filteredCities = cities.filter{ $0.name.lowercased().contains((searchWord?.lowercased())!) }
@@ -244,16 +220,9 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
         
         tableView.reloadData()
         
-        
-        
         return true
         
     }
-    
-    
-    
-    
-    
     
     
     // テキストフィールド入力開始前に呼ばれる

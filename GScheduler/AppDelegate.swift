@@ -41,14 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
               NSForegroundColorAttributeName: UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
               ],
             for: .normal)
-        
-        
-        // テーブルセルのラベル        
-        
 
         return true
+        
     }
 }
-
 
 

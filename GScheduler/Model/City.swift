@@ -1,5 +1,5 @@
 
-import Foundation
+import Foundation  // dynamicを使うために必須
 import RealmSwift
 
 class City: Object {
@@ -29,5 +29,5 @@ class City: Object {
         self.timeZone = timeZone
         self.isSelected = isSelected
     }
-    
 }
+
