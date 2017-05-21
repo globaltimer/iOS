@@ -2,21 +2,18 @@
 import UIKit
 import RealmSwift
 
-class CityListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+
+class CityListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
         
     var realm: Realm!
-
     var cities: Results<City>!
-
     var filteredCities: [City] = []
     
-    
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
+    // "A" ~ "Z" の配列
+    let sections = (65...90).map{ String(Character(UnicodeScalar($0)!)) }
     
 
     override func viewDidLoad() {
@@ -43,7 +40,6 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
         
-        
         navigationItem.leftBarButtonItem?.tintColor = UIColor.white
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(
             [NSFontAttributeName: UIFont(name: "quicksand", size: 18) as Any],
@@ -51,58 +47,13 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
         )
     }
     
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CityListViewCell
-        
-        // リアルタイムサーチ時の挙動
-        if (searchBar.text?.characters.count)! > 0 {
-            
-            cell.cityNameLabel.text = filteredCities[indexPath.row].name
-            
-            cell.diffGMTLabel.text = DateUtils.stringFromDate(
-                date: Date(),
-                format: "ZZZZ",
-                tz: NSTimeZone(name: filteredCities[indexPath.row].timeZone)!
-            )
-            
-            if cell.diffGMTLabel.text == "GMT" {
-                cell.diffGMTLabel.text = "GMT ±00:00"
-            }
+}
 
-            return cell
-        }
-        
-        let head_character = sections[indexPath.section]
-        
-        print("都市のインデックスは、\(head_character)")
-        
-        let cities = self.cities.filter("name BEGINSWITH '\(head_character)'")
-        
-        cell.cityNameLabel.text =  cities[indexPath.row].name
-        
-        cell.diffGMTLabel.text = DateUtils.stringFromDate(
-            date: Date(),
-            format: "ZZZZ",
-            tz: NSTimeZone(name: cities[indexPath.row].timeZone)!
-        )
-            
-        
-        if cell.diffGMTLabel.text == "GMT" {
-            cell.diffGMTLabel.text = "GMT ±00:00"
-        }
-        
-        cell.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
 
-        return cell
-    }
-    
+extension CityListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -146,17 +97,67 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
         //閉じる(ナビゲーションバーで遷移してきたなら、こうすれば戻れるんだよ)
         dismiss(animated: true, completion: nil)
     }
+}
+
+
+extension CityListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CityListViewCell
+        
+        // リアルタイムサーチ時の挙動
+        if (searchBar.text?.characters.count)! > 0 {
+            
+            cell.cityNameLabel.text = filteredCities[indexPath.row].name
+            
+            cell.diffGMTLabel.text = DateUtils.stringFromDate(
+                date: Date(),
+                format: "ZZZZ",
+                tz: NSTimeZone(name: filteredCities[indexPath.row].timeZone)!
+            )
+            
+            if cell.diffGMTLabel.text == "GMT" {
+                cell.diffGMTLabel.text = "GMT ±00:00"
+            }
+            
+            return cell
+        }
+        
+        let head_character = sections[indexPath.section]
+        
+        print("都市のインデックスは、\(head_character)")
+        
+        let cities = self.cities.filter("name BEGINSWITH '\(head_character)'")
+        
+        cell.cityNameLabel.text =  cities[indexPath.row].name
+        
+        cell.diffGMTLabel.text = DateUtils.stringFromDate(
+            date: Date(),
+            format: "ZZZZ",
+            tz: NSTimeZone(name: cities[indexPath.row].timeZone)!
+        )
+        
+        
+        if cell.diffGMTLabel.text == "GMT" {
+            cell.diffGMTLabel.text = "GMT ±00:00"
+        }
+        
+        cell.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
+        
+        return cell
+    }
     
     
-    ///////////////
-    // MARK: Index
-    ///////////////
+    // INDEX
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        if (searchBar.text?.characters.count)! > 0 {
-            return 1
-        }
+        if (searchBar.text?.characters.count)! > 0 { return 1 }
         
         return sections.count // 26
     }
@@ -170,15 +171,12 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
         
         let head_character = sections[section]
         let cityStartFromABC = cities.filter("name BEGINSWITH '\(head_character)'")
-
+        
         return cityStartFromABC.count
         
     }
     
-    // "A" ~ "Z" の配列
-    let sections = (65...90).map{ String(Character(UnicodeScalar($0)!)) }
-    
-    
+
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         
         // searchBarに文字があればインデックスは表示しない
@@ -194,9 +192,7 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
     /// セクションのタイトルを返す
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        if (searchBar.text?.characters.count)! > 0 {
-            return nil
-        }
+        if (searchBar.text?.characters.count)! > 0 { return nil }
         
         print("セクションのタイトル: \(sections[section])")
         return sections[section]
@@ -208,24 +204,10 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
         return index
     }
     
-    
-    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
-        filteredCities = []
-        
-        let searchWord = searchBar.text
-        
-        // 小文字・大文字を無視して検索
-        filteredCities = cities.filter{ $0.name.lowercased().contains((searchWord?.lowercased())!) }
-        
-        print("まず、filteredCitiesのフィルタリングが行われる")
-        
-        tableView.reloadData()
-        
-        return true
-        
-    }
-    
+}
+
+
+extension CityListViewController: UISearchBarDelegate {
     
     // テキストフィールド入力開始前に呼ばれる
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
@@ -239,6 +221,21 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
         self.view.endEditing(true)
         searchBar.text = ""
         self.tableView.reloadData()
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        filteredCities = []
+        
+        let searchWord = searchBar.text
+        
+        // 小文字・大文字を無視して検索
+        filteredCities = cities.filter{ $0.name.lowercased().contains((searchWord?.lowercased())!) }
+        
+        tableView.reloadData()
+        
+        return true
     }
 }
 
