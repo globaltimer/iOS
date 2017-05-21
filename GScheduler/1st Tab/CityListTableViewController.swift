@@ -175,7 +175,8 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    var sections = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    // "A" ~ "Z" の配列
+    let sections = (65...90).map{ String(Character(UnicodeScalar($0)!)) }
     
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
@@ -185,7 +186,8 @@ class CityListViewController: UIViewController, UITableViewDelegate, UITableView
             return nil
         }
         
-        return ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+        // "A" ~ "Z" の配列
+        return (65...90).map{ String(Character(UnicodeScalar($0)!)) }
     }
     
     
