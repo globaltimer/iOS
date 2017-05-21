@@ -6,18 +6,12 @@ class TeamSalmonMemberListViewController: UIViewController, UITableViewDelegate,
     
     @IBOutlet weak var tableView: UITableView!
     
-    
-    
-    
     let teamMemberList = ["creaaa", "HoNKoT", "Saayaman", "Yoooo410"]
-    
     
     override func viewDidLoad() {
         
         tableView.delegate   = self
         tableView.dataSource = self
-        
-        
         
     }
     
@@ -61,17 +55,12 @@ class TeamSalmonMemberListViewController: UIViewController, UITableViewDelegate,
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-        
     }
     
     
     
     @IBAction func githubButtonTapped(_ sender: UIButton) {
-        
         self.performSegue(withIdentifier: "toGithub", sender: sender)
-        
     }
     
     
@@ -82,7 +71,5 @@ class TeamSalmonMemberListViewController: UIViewController, UITableViewDelegate,
         if let button = sender as? UIButton {
             vc.teamMemberURL = teamMemberList[button.tag]
         }
-        
     }
-    
 }

@@ -19,7 +19,6 @@ class AboutViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if let selectedRow = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedRow, animated: true)
         }
-        
     }
     
     
@@ -87,11 +86,5 @@ class AboutViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-    
 }
-
-
-
 

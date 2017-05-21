@@ -16,10 +16,6 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
     // ピンされた都市のID。 -1 = isSelectedな都市が1件もなく、テーブルセルが一行もない状態
     var pinedCityCell = -1
 
-    // タイム調整バフ・デバフ
-    // var adjustTimeStat = 0
-    
-    
     // GMT標準時刻
     var fixedTime: Date! = Date() {
         

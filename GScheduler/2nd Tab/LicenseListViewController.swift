@@ -24,8 +24,6 @@ class LicenseListViewController: UIViewController, UITableViewDelegate, UITableV
             return
         }
         
-        print("")
-        
         guard let items = NSArray(contentsOfFile: path) else {
             return
         }
@@ -45,7 +43,6 @@ class LicenseListViewController: UIViewController, UITableViewDelegate, UITableV
             }
             
             softwares.append(Software(name: name, license: license))
-            
         }
     }
     
@@ -58,7 +55,6 @@ class LicenseListViewController: UIViewController, UITableViewDelegate, UITableV
         self.performSegue(withIdentifier: "PushLicenseDetail", sender: indexPath)
         
     }
-    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,5 +87,4 @@ class LicenseListViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
 }
-
 

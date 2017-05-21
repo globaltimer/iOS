@@ -2,28 +2,12 @@
 import UIKit
 import RealmSwift
 
-extension UILabel {
-    
-    func kern(kerningValue: CGFloat) {
-        
-        self.attributedText = NSAttributedString(
-            string: self.text ?? "",
-            attributes: [NSKernAttributeName: kerningValue,
-                         NSFontAttributeName: font,
-                         NSForegroundColorAttributeName: self.textColor
-                        ]
-        )
-    }
-}
 
-
-class TimeNowViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TimeNowViewController: UIViewController {
     
-    // GMT標準時刻
     var GMT: Date!
     
-    var realm: Realm! // = try! Realm()
-    
+    var realm: Realm!
     var cities: Results<City>!
     
     // ピンされたcityのセル番号
@@ -36,7 +20,6 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
     ///////////////////
     // MARK: Life Cycle
     ///////////////////
-    
     
     override func viewDidLoad() {
         
@@ -68,10 +51,7 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
 
         
         // 初回起動時のみ
-        if cities.count == 0 {
-            print("初回起動です")
-            initialEnrollCities()
-        }
+        if cities.count == 0 { initialEnrollCities() }
     }
     
     
@@ -98,14 +78,8 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
         let ud = UserDefaults.standard
         ud.set(pinedCityCell, forKey: "pinedCityCell")
         ud.synchronize()
-        
     }
-    
-    
-    //////////////
-    // MARK: Event
-    //////////////
-    
+
     
     @IBAction func rightButtonTapped(_ sender: Any) {
     
@@ -115,12 +89,10 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
             self.present(vc, animated: true, completion: nil)
         }
     }
-    
-    
-    //////////////////
-    // MARK: TableView
-    //////////////////
-    
+}
+
+
+extension TimeNowViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cities.count
@@ -144,16 +116,15 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
             format: "",
             tz: NSTimeZone(name: cities[indexPath.row].timeZone)!
         )
-
+        
         
         cell.timeLabel.text = DateUtils.stringFromDate(
             date: GMT,
             format: "HH:mm",
             tz: NSTimeZone(name: cities[indexPath.row].timeZone)!
         )
-
+        
         cell.timeLabel.kern(kerningValue: 2)
-
         
         cell.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
         
@@ -163,35 +134,15 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
         } else {
             cell.timeLabel.isHidden = false
         }
-
+        
         return cell
-    }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        // ピン都市を更新
-        pinedCityCell = indexPath.row
-        
-        tableView.reloadData()
     }
     
     
     // セルが削除が可能なことを伝えるメソッド
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) ->UITableViewCellEditingStyle {
-        
-        /*
-        if tableView.isEditing {
-            return .delete
-        } else {
-            return .none
-        }
-        */
-        
         return tableView.isEditing ? .delete : .none
-        
     }
-    
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -247,7 +198,6 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
                         print("\(city.name)はスルーで。")
                         continue
                     }
-
                 }
                 
                 let tmp = city.orderNo
@@ -278,15 +228,15 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
             
             // pinedCityCellの振り直し
             if indexPath.row > pinedCityCell {
-                
-            }
             
+            }
+                
             else if indexPath.row == pinedCityCell {
                 if indexPath.row != 0 {
                     pinedCityCell -= 1
                 }
             }
-            
+                
             else if indexPath.row  < pinedCityCell {
                 pinedCityCell -= 1
             }
@@ -328,21 +278,11 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.isEditing = editing
         
         for cell in tableView.visibleCells {
-            
-            /*
-            if tableView.isEditing {
-                (cell as! TimeNowViewCell).timeLabel.isHidden = true
-            } else {
-                (cell as! TimeNowViewCell).timeLabel.isHidden = false
-            }
-            */
-            
             (cell as? TimeNowViewCell)?.timeLabel.isHidden = tableView.isEditing ? true : false
-            
         }
     }
     
-
+    
     func initialEnrollCities() {
         
         var citiesAry: [City] = []
@@ -379,7 +319,7 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     func setInitCities() {
-
+        
         try! realm.write {
             
             var dynamicOrderNo = 0
@@ -394,7 +334,7 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
             // 端末のタイムゾーンをもとにしたプリセット
             if let currentCityID = currentCityID {
                 realm.create(City.self, value: ["id": currentCityID, "isSelected": true, "orderNo": dynamicOrderNo], update: true)
-                    dynamicOrderNo += 1
+                dynamicOrderNo += 1
             }
             
             if currentCityID != 201 {
@@ -415,5 +355,31 @@ class TimeNowViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
     }
-} // class
+}
 
+
+extension TimeNowViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // ピン都市を更新
+        pinedCityCell = indexPath.row
+        
+        tableView.reloadData()
+    }
+}
+
+
+extension UILabel {
+    
+    func kern(kerningValue: CGFloat) {
+        
+        self.attributedText = NSAttributedString(
+            string: self.text ?? "",
+            attributes: [NSKernAttributeName: kerningValue,
+                         NSFontAttributeName: font,
+                         NSForegroundColorAttributeName: self.textColor
+            ]
+        )
+    }
+}

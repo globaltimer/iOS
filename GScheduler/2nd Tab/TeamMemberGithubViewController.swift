@@ -12,12 +12,9 @@ class TeamMemberGithubViewController: UIViewController {
         
         super.viewDidLoad()
         
-        print("")
-        
         let url = URL(string: "https://github.com/" + teamMemberURL)
         let request = URLRequest(url: url!)
         webView.loadRequest(request)
         
     }
-
 }
