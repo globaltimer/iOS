@@ -3,18 +3,14 @@ import UIKit
 
 class TeamSalmonMemberListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     @IBOutlet weak var tableView: UITableView!
     
     let teamMemberList = ["creaaa", "HoNKoT", "Saayaman", "Yoooo410"]
     
     override func viewDidLoad() {
-        
         tableView.delegate   = self
         tableView.dataSource = self
-        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -24,8 +20,6 @@ class TeamSalmonMemberListViewController: UIViewController, UITableViewDelegate,
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
-    
-
     
     /* delegate */
     
