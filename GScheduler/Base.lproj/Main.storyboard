@@ -297,6 +297,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="JTe-yU-i46"/>
                                                     <constraint firstAttribute="width" constant="35" id="Pyx-GU-8ER"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="fAw-ZY-sCq"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="&gt;"/>
@@ -329,6 +330,7 @@
                                                 <rect key="frame" x="8" y="0.0" width="35" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="6d0-RE-IOX"/>
+                                                    <constraint firstAttribute="height" constant="48" id="du8-2j-0RI"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="&lt;"/>
@@ -344,12 +346,14 @@
                                             <constraint firstItem="TdH-Ov-M18" firstAttribute="leading" secondItem="3O9-AM-bAo" secondAttribute="trailing" constant="16" id="B0N-6i-iTy"/>
                                             <constraint firstItem="xCS-dF-akZ" firstAttribute="centerY" secondItem="3xk-8J-bof" secondAttribute="centerY" id="Cqf-Ig-1Xy"/>
                                             <constraint firstItem="TdH-Ov-M18" firstAttribute="top" secondItem="wbe-Vf-nvc" secondAttribute="top" id="GQf-6a-36J"/>
+                                            <constraint firstItem="TdH-Ov-M18" firstAttribute="centerY" secondItem="wbe-Vf-nvc" secondAttribute="centerY" id="HlA-6z-em7"/>
                                             <constraint firstItem="3xk-8J-bof" firstAttribute="centerX" secondItem="wbe-Vf-nvc" secondAttribute="centerX" id="IZx-ld-zum"/>
                                             <constraint firstItem="3xk-8J-bof" firstAttribute="firstBaseline" secondItem="3O9-AM-bAo" secondAttribute="firstBaseline" id="JJU-H0-xJh"/>
                                             <constraint firstItem="3O9-AM-bAo" firstAttribute="leading" secondItem="3xk-8J-bof" secondAttribute="trailing" constant="30" id="Koj-xC-WSE"/>
                                             <constraint firstItem="9sU-hQ-eHA" firstAttribute="leading" secondItem="wbe-Vf-nvc" secondAttribute="leadingMargin" id="Pj8-WW-e8K"/>
                                             <constraint firstItem="xCS-dF-akZ" firstAttribute="leading" secondItem="9sU-hQ-eHA" secondAttribute="trailing" constant="17" id="W4Q-RV-AnH"/>
                                             <constraint firstItem="xCS-dF-akZ" firstAttribute="firstBaseline" secondItem="3xk-8J-bof" secondAttribute="firstBaseline" id="dJ0-Xd-oMq"/>
+                                            <constraint firstItem="9sU-hQ-eHA" firstAttribute="centerY" secondItem="wbe-Vf-nvc" secondAttribute="centerY" id="fEv-nZ-AJh"/>
                                             <constraint firstItem="xCS-dF-akZ" firstAttribute="baseline" secondItem="3O9-AM-bAo" secondAttribute="baseline" id="is1-hl-t7t"/>
                                             <constraint firstItem="9sU-hQ-eHA" firstAttribute="firstBaseline" secondItem="TdH-Ov-M18" secondAttribute="baseline" id="nmQ-zJ-hdm"/>
                                             <constraint firstItem="TdH-Ov-M18" firstAttribute="centerY" secondItem="3O9-AM-bAo" secondAttribute="centerY" id="pkG-d0-RGl"/>
@@ -514,7 +518,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Global Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egd-Va-cHb">
-                                                    <rect key="frame" x="137.5" y="19" width="100.5" height="21.5"/>
+                                                    <rect key="frame" x="138" y="19" width="100.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -613,7 +617,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKe-Db-X5z">
-                                                    <rect key="frame" x="8" y="20" width="114" height="21.5"/>
+                                                    <rect key="frame" x="8" y="19.5" width="114" height="21.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="114" id="gje-CB-Mx2"/>
                                                     </constraints>
