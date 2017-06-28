@@ -3,7 +3,7 @@ import UIKit
 import RealmSwift
 
 
-class SetTimeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SetTimeViewController: UIViewController {
     
     enum AdjustTimeType {
         case goBack
@@ -12,25 +12,16 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
         case timePicker
     }
     
-    
     // ピンされた都市のID。 -1 = isSelectedな都市が1件もなく、テーブルセルが一行もない状態
     var pinedCityCell = -1
 
     // GMT標準時刻
-    var fixedTime: Date! = Date() {
+    var fixedTime: Date! = Date()
         
-        didSet {
-            print("変わったw")
-        }
-        
-    }
-    
-    var realm: Realm! // = try! Realm()
-    
+    // var realm: Realm!
+    var realm = try! Realm()
     var cities: Results<City>!
-    //  = try! Realm().objects(City.self).filter("isSelected == true").sorted(byKeyPath: "orderNo", ascending: true)
-    
-    
+
     /* UI Components */
     @IBOutlet weak var cityNameLabel:  UILabel!
     @IBOutlet weak var MDYLabel:       UILabel!
@@ -45,11 +36,9 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     @IBAction func adjustTimeBeforeButton(_ sender: Any) {
-        
         self.fixedTime = Date.init(timeInterval: -1800, since: self.fixedTime)
         renewAllTimeLabels(adjustType: .goBack)
     }
-    
     
     @IBAction func adjustTimeAheadButton(_ sender: Any) {
         self.fixedTime = Date.init(timeInterval: 1800, since: self.fixedTime)
@@ -59,32 +48,7 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func renewAllTimeLabels(adjustType: AdjustTimeType) {
         
-        print("")
-        
-        if cities.isEmpty {
-            print("なにもしない")
-            return
-        }
-        
-        /*
-        switch adjustType {
-            case .goBack:
-                adjustTimeStat -= 1
-            case .ahead:
-                adjustTimeStat += 1
-            case .none, .timePicker:
-                adjustTimeStat += 0
-        }
-        */
-        
-        /*
-        print("バフレベル: \(adjustTimeStat)")
-        
-        let bef30 = 60 * 30 * (adjustTimeStat-1)
-        let new   = 60 * 30 * (adjustTimeStat+0)
-        let aft30 = 60 * 30 * (adjustTimeStat+1)
-        */
-        
+        if cities.isEmpty { return }
         
         let before30m = Date(timeInterval: TimeInterval(-1800), since: fixedTime)
         let newtral   = Date(timeInterval: TimeInterval(0),   since: fixedTime)
@@ -128,7 +92,6 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if adjustType == .none {
             timeAheadLabel.text = "now"
-            // テーブル再描画
             tableView.reloadData()
             return
         }
@@ -149,11 +112,8 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         
-        
         let adjustSec = diff >= 0 ? 30.0 : -30.0 // ±30秒の修正
         diff += adjustSec
-        
-        
         
         let sec  = Int(diff)   // 秒
         let s = sec % 60
@@ -166,7 +126,6 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
         
         print("\(day)日 \(hour)時間 \(min)分 ")
         
-        
         let minusOrPlus  = diff >= 0 ? "+ " : "- "
         let diffDay      = day != 0 ? "\(day) day " : ""
         let diffHour     = "\(abs(hour)):"
@@ -175,10 +134,9 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
 
         timeAheadLabel.text = minusOrPlus + diffDay + diffHour + diffMinutes + pastOrFuture
         
-        // テーブル再描画
         tableView.reloadData()
+        
     }
-    
     
     
     ////////////////////
@@ -188,8 +146,7 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        //
-        tableView.delegate = self
+        
         tableView.dataSource = self
         
         // Realmのパス
@@ -231,23 +188,47 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
             cityNameLabel.text = pin + cities[pinedCityCell].name.uppercased()
         }
 
-        
-        // adjustTimeStat = 0
-        
         renewAllTimeLabels(adjustType: .none)
         
     }
     
+
+    @IBAction func tap(_ sender: UIButton) {
+        
+        let title = ""
+        let message = "\n\n\n\n\n\n\n\n"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        
+        let datePicker = UIDatePicker()
+        
+        datePicker.timeZone = TimeZone(identifier: cities[pinedCityCell].timeZone)
+        
+        alert.view.addSubview(datePicker)
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { action in
+            
+            // Step 1: renew model
+            self.fixedTime = datePicker.date
+            
+            // Step 2: renew view
+            self.renewAllTimeLabels(adjustType: .timePicker)
+            
+        }
+        
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     
-    ///////////////////
-    // MARK: Table View
-    ///////////////////
-    
+}
+
+
+extension SetTimeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cities.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -260,29 +241,23 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
             format: "",
             tz: NSTimeZone(name: cities[indexPath.row].timeZone)!
         )
-
+        
         cell.timeLabel.text = DateUtils.stringFromDate(
             date: self.fixedTime,
             format: "HH:mm",
             tz: NSTimeZone(name: cities[indexPath.row].timeZone)!
         )
-
+        
         cell.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
-
+        
         return cell
+        
     }
-    
-
-    
     
     // セルが削除が可能なことを伝えるメソッド
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) ->UITableViewCellEditingStyle {
-        
-        if tableView.isEditing {
-            return .delete
-        } else {
-            return .none
-        }
+        if tableView.isEditing { return .delete }
+        else { return .none }
     }
     
     
@@ -310,59 +285,13 @@ class SetTimeViewController: UIViewController, UITableViewDataSource, UITableVie
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == pinedCityCell {
-            return 0
-        }
+        if indexPath.row == pinedCityCell { return 0 }
         return 75
     }
     
-    
-
-    @IBAction func tap(_ sender: UIButton) {
-        
-        let title = ""
-        let message = "\n\n\n\n\n\n\n\n"
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-        
-        
-        let datePicker = UIDatePicker()
-        
-        /* ↓ こんなダルいことしなくてよかったんや。。。。。。
-         
-        // 32400 = ロンドンと東京の時差は 32400秒 = 9時間
-        let tz = Double((NSTimeZone(name: cities[pinedCityCell].timeZone)?.secondsFromGMT)!)
-        let boke = Date(timeInterval: tz, since: Date())    // ローカル時間(=バンクーバー)からの差
-        
-        datePicker.date = boke
-        
-        */
-        datePicker.timeZone = TimeZone(identifier: cities[pinedCityCell].timeZone)
-        
-        alert.view.addSubview(datePicker)
-        
-        
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { action in
-            
-            // Step 1: renew model
-            self.fixedTime = datePicker.date
-            
-            // Step 2: renew view
-            self.renewAllTimeLabels(adjustType: .timePicker)
-            
-        }
-        
-        alert.addAction(okAction)
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
 }
-
-
-
-
 

@@ -28,6 +28,7 @@ class City: Object {
         self.name = name
         self.timeZone = timeZone
         self.isSelected = isSelected
+        
     }
 }
 

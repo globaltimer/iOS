@@ -1,14 +1,13 @@
 
 import UIKit
 
-class TeamSalmonMemberListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TeamSalmonMemberListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     let teamMemberList = ["creaaa", "HoNKoT", "Saayaman", "Yoooo410"]
     
     override func viewDidLoad() {
-        tableView.delegate   = self
         tableView.dataSource = self
     }
     
@@ -19,14 +18,30 @@ class TeamSalmonMemberListViewController: UIViewController, UITableViewDelegate,
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
+        
     }
     
-    /* delegate */
+    
+    @IBAction func githubButtonTapped(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "toGithub", sender: sender)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let vc = segue.destination as! TeamMemberGithubViewController
+        
+        if let button = sender as? UIButton {
+            vc.teamMemberURL = teamMemberList[button.tag]
+        }
+    }
+}
+
+
+extension TeamSalmonMemberListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return teamMemberList.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -47,23 +62,7 @@ class TeamSalmonMemberListViewController: UIViewController, UITableViewDelegate,
         return 44
     }
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    }
-    
-    
-    
-    @IBAction func githubButtonTapped(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "toGithub", sender: sender)
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let vc = segue.destination as! TeamMemberGithubViewController
-        
-        if let button = sender as? UIButton {
-            vc.teamMemberURL = teamMemberList[button.tag]
-        }
-    }
 }
+
+
+

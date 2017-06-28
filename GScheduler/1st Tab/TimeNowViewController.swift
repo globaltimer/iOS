@@ -49,9 +49,9 @@ class TimeNowViewController: UIViewController {
         [NSFontAttributeName: UIFont(name: "quicksand", size: 18) as Any],
             for: .normal)
 
-        
         // 初回起動時のみ
         if cities.count == 0 { initialEnrollCities() }
+        
     }
     
     
@@ -80,6 +80,80 @@ class TimeNowViewController: UIViewController {
         ud.synchronize()
     }
 
+    
+    func initialEnrollCities() {
+        
+        var citiesAry: [City] = []
+        
+        let csvFilePath = Bundle.main.path(forResource: "CityNameSeed", ofType: "csv")
+        
+        let csvStringData = try! String(contentsOfFile: csvFilePath!, encoding: String.Encoding.utf8)
+        
+        var id = 0
+        
+        // csvを1行ずつ読み込む
+        csvStringData.enumerateLines{ (line, stop) in
+            
+            // カンマ区切りで分割
+            let cityDataArray = line.components(separatedBy: ",")
+            citiesAry.append(
+                City(id: id, name: cityDataArray[0], timeZone: cityDataArray[1], isSelected: false)
+            )
+            id += 1
+        }
+        
+        
+        try! realm.write {
+            for city in citiesAry {
+                self.realm.add(city, update: true)
+                print("\(city.name)")
+            }
+        }
+        
+        // 都市の初期設定(いくつかの都市をあらかじめプリセット)
+        setInitCities()
+        
+    } // 初期化処理
+    
+    
+    func setInitCities() {
+        
+        try! realm.write {
+            
+            var dynamicOrderNo = 0
+            
+            var localTimeZoneName: String {
+                return TimeZone.current.identifier
+            }
+            
+            // 端末の現在位置の都市のID
+            let currentCityID = realm.objects(City.self).filter("timeZone == '\(localTimeZoneName)'").first?.id
+            
+            // 端末のタイムゾーンをもとにしたプリセット
+            if let currentCityID = currentCityID {
+                realm.create(City.self, value: ["id": currentCityID, "isSelected": true, "orderNo": dynamicOrderNo], update: true)
+                dynamicOrderNo += 1
+            }
+            
+            if currentCityID != 201 {
+                // 東京
+                realm.create(City.self, value: ["id": 201, "isSelected": true, "orderNo": dynamicOrderNo], update: true)
+                dynamicOrderNo += 1
+            }
+            
+            if currentCityID != 202 {
+                // ナイロビ
+                realm.create(City.self, value: ["id": 202, "isSelected": true, "orderNo": dynamicOrderNo], update: true)
+                dynamicOrderNo += 1
+            }
+            
+            if currentCityID != 108 {
+                // バンクーバー
+                realm.create(City.self, value: ["id": 108, "isSelected": true, "orderNo": dynamicOrderNo], update: true)
+            }
+        }
+    }
+    
     
     @IBAction func rightButtonTapped(_ sender: Any) {
     
@@ -136,6 +210,7 @@ extension TimeNowViewController: UITableViewDataSource {
         }
         
         return cell
+        
     }
     
     
@@ -282,79 +357,6 @@ extension TimeNowViewController: UITableViewDataSource {
         }
     }
     
-    
-    func initialEnrollCities() {
-        
-        var citiesAry: [City] = []
-        
-        let csvFilePath = Bundle.main.path(forResource: "CityNameSeed", ofType: "csv")
-        
-        let csvStringData = try! String(contentsOfFile: csvFilePath!, encoding: String.Encoding.utf8)
-        
-        var id = 0
-        
-        // csvを1行ずつ読み込む
-        csvStringData.enumerateLines{ (line, stop) in
-            
-            // カンマ区切りで分割
-            let cityDataArray = line.components(separatedBy: ",")
-            citiesAry.append(
-                City(id: id, name: cityDataArray[0], timeZone: cityDataArray[1], isSelected: false)
-            )
-            id += 1
-        }
-        
-        
-        try! realm.write {
-            for city in citiesAry {
-                self.realm.add(city, update: true)
-                print("\(city.name)")
-            }
-        }
-        
-        // 都市の初期設定(いくつかの都市をあらかじめプリセット)
-        setInitCities()
-        
-    } // 初期化処理
-    
-    
-    func setInitCities() {
-        
-        try! realm.write {
-            
-            var dynamicOrderNo = 0
-            
-            var localTimeZoneName: String {
-                return TimeZone.current.identifier
-            }
-            
-            // 端末の現在位置の都市のID
-            let currentCityID = realm.objects(City.self).filter("timeZone == '\(localTimeZoneName)'").first?.id
-            
-            // 端末のタイムゾーンをもとにしたプリセット
-            if let currentCityID = currentCityID {
-                realm.create(City.self, value: ["id": currentCityID, "isSelected": true, "orderNo": dynamicOrderNo], update: true)
-                dynamicOrderNo += 1
-            }
-            
-            if currentCityID != 201 {
-                // 東京
-                realm.create(City.self, value: ["id": 201, "isSelected": true, "orderNo": dynamicOrderNo], update: true)
-                dynamicOrderNo += 1
-            }
-            
-            if currentCityID != 202 {
-                // ナイロビ
-                realm.create(City.self, value: ["id": 202, "isSelected": true, "orderNo": dynamicOrderNo], update: true)
-                dynamicOrderNo += 1
-            }
-            
-            if currentCityID != 108 {
-                // バンクーバー
-                realm.create(City.self, value: ["id": 108, "isSelected": true, "orderNo": dynamicOrderNo], update: true)
-            }
-        }
-    }
 }
 
 
@@ -369,11 +371,8 @@ extension TimeNowViewController: UITableViewDelegate {
     }
 }
 
-
 extension UILabel {
-    
     func kern(kerningValue: CGFloat) {
-        
         self.attributedText = NSAttributedString(
             string: self.text ?? "",
             attributes: [NSKernAttributeName: kerningValue,
@@ -383,3 +382,4 @@ extension UILabel {
         )
     }
 }
+

@@ -8,7 +8,7 @@ class CityListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
         
-    var realm: Realm!
+    var realm:  Realm!
     var cities: Results<City>!
     var filteredCities: [City] = []
     
@@ -96,6 +96,7 @@ extension CityListViewController: UITableViewDelegate {
         
         //閉じる(ナビゲーションバーで遷移してきたなら、こうすれば戻れるんだよ)
         dismiss(animated: true, completion: nil)
+        
     }
 }
 
@@ -237,5 +238,6 @@ extension CityListViewController: UISearchBarDelegate {
         
         return true
     }
+    
 }
 

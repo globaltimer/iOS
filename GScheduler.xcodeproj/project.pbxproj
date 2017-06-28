@@ -23,6 +23,7 @@
 		448ABC2B1E397AFB0005958C /* SetTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448ABC2A1E397AFB0005958C /* SetTimeViewController.swift */; };
 		448ABC301E397F350005958C /* SetTimeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448ABC2F1E397F350005958C /* SetTimeViewCell.swift */; };
 		449259B11E4C2904006B9AAD /* CityListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449259B01E4C2904006B9AAD /* CityListViewCell.swift */; };
+		44AA11261F038C1C004FE556 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44AA11251F038C1C004FE556 /* Info.plist */; };
 		44C5187D1E67F4010050CA61 /* CityNameSeed.csv in Resources */ = {isa = PBXBuildFile; fileRef = 44C5187C1E67F4010050CA61 /* CityNameSeed.csv */; };
 		44CB94431EC8E16C003BA1AC /* TeamSalmonMemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB94421EC8E16C003BA1AC /* TeamSalmonMemberListViewController.swift */; };
 		44CB94451EC8EBF1003BA1AC /* TeamMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB94441EC8EBF1003BA1AC /* TeamMemberTableViewCell.swift */; };
@@ -52,7 +53,7 @@
 		448ABC2A1E397AFB0005958C /* SetTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimeViewController.swift; sourceTree = "<group>"; };
 		448ABC2F1E397F350005958C /* SetTimeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimeViewCell.swift; sourceTree = "<group>"; };
 		449259B01E4C2904006B9AAD /* CityListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListViewCell.swift; sourceTree = "<group>"; };
-		44A703DF1ECCDC0200107396 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44AA11251F038C1C004FE556 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44C5187C1E67F4010050CA61 /* CityNameSeed.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CityNameSeed.csv; sourceTree = "<group>"; };
 		44CB94421EC8E16C003BA1AC /* TeamSalmonMemberListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSalmonMemberListViewController.swift; sourceTree = "<group>"; };
 		44CB94441EC8EBF1003BA1AC /* TeamMemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamMemberTableViewCell.swift; sourceTree = "<group>"; };
@@ -98,6 +99,7 @@
 				440223881DF3689A00774C30 /* AppDelegate.swift */,
 				440223911DF3689A00774C30 /* LaunchScreen.storyboard */,
 				4402238C1DF3689A00774C30 /* Main.storyboard */,
+				44AA11251F038C1C004FE556 /* Info.plist */,
 				44A703DA1ECCCF5D00107396 /* Resources */,
 				44EB462F1EC97C4E0089C62F /* Font */,
 				4446B1B61E7895310058B55D /* Utils */,
@@ -145,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				440223A91DF4033900774C30 /* memo */,
-				44A703DF1ECCDC0200107396 /* Info.plist */,
 				44008E4A1EBEE67C0088163A /* Licenses.plist */,
 				44C5187C1E67F4010050CA61 /* CityNameSeed.csv */,
 			);
@@ -241,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44AA11261F038C1C004FE556 /* Info.plist in Resources */,
 				44EB46331EC97C7A0089C62F /* Quicksand-Regular.ttf in Resources */,
 				440223931DF3689A00774C30 /* LaunchScreen.storyboard in Resources */,
 				44008E4B1EBEE67C0088163A /* Licenses.plist in Resources */,
