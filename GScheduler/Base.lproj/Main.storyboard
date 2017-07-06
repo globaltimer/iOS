@@ -372,6 +372,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyw-X3-5Rz">
                                         <rect key="frame" x="333" y="90" width="24" height="24"/>
                                         <state key="normal" image="pencil"/>
+                                        <connections>
+                                            <action selector="tap:" destination="WOX-4z-qbf" eventType="touchUpInside" id="hD6-h8-r8Z"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80392156862745101" green="0.80392156862745101" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>

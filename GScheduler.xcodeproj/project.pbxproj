@@ -103,8 +103,8 @@
 				44EB462F1EC97C4E0089C62F /* Font */,
 				4446B1B61E7895310058B55D /* Utils */,
 				440223A81DF3E05600774C30 /* Model */,
-				44DA6E1A1DF53EF800417140 /* 1st Tab */,
-				448ABC291E397AC60005958C /* 2nd Tab */,
+				44DA6E1A1DF53EF800417140 /* 1st (Time Now) */,
+				448ABC291E397AC60005958C /* 2nd (Set Time) */,
 				446E7C311DF5CC6700E5D3E5 /* Images.xcassets */,
 			);
 			path = GScheduler;
@@ -127,7 +127,7 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		448ABC291E397AC60005958C /* 2nd Tab */ = {
+		448ABC291E397AC60005958C /* 2nd (Set Time) */ = {
 			isa = PBXGroup;
 			children = (
 				448ABC2A1E397AFB0005958C /* SetTimeViewController.swift */,
@@ -139,6 +139,7 @@
 				44CB94461EC8F304003BA1AC /* TeamMemberGithubViewController.swift */,
 				44008E521EBEF3D90088163A /* LicenseDetailViewController.swift */,
 			);
+			name = "2nd (Set Time)";
 			path = "2nd Tab";
 			sourceTree = "<group>";
 		};
@@ -161,7 +162,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		44DA6E1A1DF53EF800417140 /* 1st Tab */ = {
+		44DA6E1A1DF53EF800417140 /* 1st (Time Now) */ = {
 			isa = PBXGroup;
 			children = (
 				4402238A1DF3689A00774C30 /* TimeNowViewController.swift */,
@@ -169,6 +170,7 @@
 				440223A41DF3A28F00774C30 /* CityListTableViewController.swift */,
 				449259B01E4C2904006B9AAD /* CityListViewCell.swift */,
 			);
+			name = "1st (Time Now)";
 			path = "1st Tab";
 			sourceTree = "<group>";
 		};
