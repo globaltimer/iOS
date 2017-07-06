@@ -19,6 +19,7 @@
 		440223A51DF3A28F00774C30 /* CityListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440223A41DF3A28F00774C30 /* CityListTableViewController.swift */; };
 		440223AA1DF4033900774C30 /* memo in Resources */ = {isa = PBXBuildFile; fileRef = 440223A91DF4033900774C30 /* memo */; };
 		4446B1B81E78954B0058B55D /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4446B1B71E78954B0058B55D /* DateUtils.swift */; };
+		44612CE21F0E9E5B003E4FBC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 44612CE11F0E9E5B003E4FBC /* Settings.bundle */; };
 		446E7C321DF5CC6700E5D3E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 446E7C311DF5CC6700E5D3E5 /* Images.xcassets */; };
 		448ABC2B1E397AFB0005958C /* SetTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448ABC2A1E397AFB0005958C /* SetTimeViewController.swift */; };
 		448ABC301E397F350005958C /* SetTimeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448ABC2F1E397F350005958C /* SetTimeViewCell.swift */; };
@@ -48,6 +49,7 @@
 		440223A61DF3B8D200774C30 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		440223A91DF4033900774C30 /* memo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = memo; sourceTree = "<group>"; };
 		4446B1B71E78954B0058B55D /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		44612CE11F0E9E5B003E4FBC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		446E7C311DF5CC6700E5D3E5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		448ABC2A1E397AFB0005958C /* SetTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimeViewController.swift; sourceTree = "<group>"; };
 		448ABC2F1E397F350005958C /* SetTimeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimeViewCell.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				440223A91DF4033900774C30 /* memo */,
 				44008E4A1EBEE67C0088163A /* Licenses.plist */,
 				44C5187C1E67F4010050CA61 /* CityNameSeed.csv */,
+				44612CE11F0E9E5B003E4FBC /* Settings.bundle */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44612CE21F0E9E5B003E4FBC /* Settings.bundle in Resources */,
 				44EB46331EC97C7A0089C62F /* Quicksand-Regular.ttf in Resources */,
 				440223931DF3689A00774C30 /* LaunchScreen.storyboard in Resources */,
 				44008E4B1EBEE67C0088163A /* Licenses.plist in Resources */,
