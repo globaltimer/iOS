@@ -2,12 +2,11 @@
 import UIKit
 import RealmSwift
 
-
 class CityListViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-        
+    
     var realm:  Realm!
     var cities: Results<City>!
     var filteredCities: [City] = []
@@ -15,18 +14,16 @@ class CityListViewController: UIViewController {
     // "A" ~ "Z" の配列
     let sections = (65...90).map{ String(Character(UnicodeScalar($0)!)) }
     
-
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        realm = try! Realm()
-
-        cities = realm.objects(City.self).sorted(byKeyPath: "name", ascending: true)
+        self.realm = try! Realm()
+        self.cities = realm.objects(City.self).sorted(byKeyPath: "name", ascending: true)
         
         tableView.delegate   = self
         tableView.dataSource = self
-        
         searchBar.delegate   = self
         
         searchBar.barTintColor = UIColor(red:0.14, green:0.68, blue:0.73, alpha:1.0)
@@ -45,6 +42,7 @@ class CityListViewController: UIViewController {
             [NSFontAttributeName: UIFont(name: "quicksand", size: 18) as Any],
             for: .normal
         )
+        
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
@@ -111,10 +109,18 @@ extension CityListViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CityListViewCell
         
-        // リアルタイムサーチ時の挙動
-        if (searchBar.text?.characters.count)! > 0 {
+        // リアルタイムサーチ時の挙動 (= searchbarに文字が1文字以上ある)
+        if (self.searchBar.text?.characters.count)! > 0 {
             
-            cell.cityNameLabel.text = filteredCities[indexPath.row].name
+            // ここが ver 1.0.0のバグの張本人！
+            // self.filteredCitiesがemptyの場合があるので、その場合はソッコーリターン！
+            guard !self.filteredCities.isEmpty else {
+                let cell = cell
+                return cell
+            }
+            
+            // この行で a 入れたら、 Out of range きたー！！！
+            cell.cityNameLabel.text = self.filteredCities[indexPath.row].name
             
             cell.diffGMTLabel.text = DateUtils.stringFromDate(
                 date: Date(),
@@ -157,27 +163,31 @@ extension CityListViewController: UITableViewDataSource {
     // INDEX
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        /*
+         if (searchBar.text?.characters.count)! > 0 { return 1 }
+         return sections.count // 26
+         */
         
-        if (searchBar.text?.characters.count)! > 0 { return 1 }
+        return (searchBar.text?.characters.count)! > 0 ? 1 : self.sections.count
         
-        return sections.count // 26
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if (searchBar.text?.characters.count)! > 0 {
-            return filteredCities.count
+            let count = filteredCities.count
+            return count
         }
         
-        let head_character = sections[section]
+        let head_character   = self.sections[section]
         let cityStartFromABC = cities.filter("name BEGINSWITH '\(head_character)'")
         
         return cityStartFromABC.count
         
     }
     
-
+    
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         
         // searchBarに文字があればインデックスは表示しない
@@ -186,17 +196,13 @@ extension CityListViewController: UITableViewDataSource {
         }
         
         // "A" ~ "Z" の配列
-        return (65...90).map{ String(Character(UnicodeScalar($0)!)) }
+        return self.sections //(65...90).map{ String(Character(UnicodeScalar($0)!)) }
     }
     
     
     /// セクションのタイトルを返す
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        if (searchBar.text?.characters.count)! > 0 { return nil }
-        
-        print("セクションのタイトル: \(sections[section])")
-        return sections[section]
+        return (searchBar.text?.characters.count)! > 0 ? nil : self.sections[section]
     }
     
     
@@ -211,6 +217,7 @@ extension CityListViewController: UITableViewDataSource {
 extension CityListViewController: UISearchBarDelegate {
     
     // テキストフィールド入力開始前に呼ばれる
+    // (= フォーカスが当たった時に即発動)
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         searchBar.showsCancelButton = true
         return true
@@ -224,20 +231,24 @@ extension CityListViewController: UISearchBarDelegate {
         self.tableView.reloadData()
     }
     
-    
-    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    // 文字がインプットされたときに発動
+    // 未選択(=決定ボタンが押される前)のときに即発動している
+    // と同時に、決定したときにも発動する。
+    func searchBar(_                  searchBar: UISearchBar,
+                   shouldChangeTextIn range:     NSRange,
+                   replacementText    text:      String) -> Bool {
         
-        filteredCities = []
+        self.filteredCities = []
         
         let searchWord = searchBar.text
         
         // 小文字・大文字を無視して検索
-        filteredCities = cities.filter{ $0.name.lowercased().contains((searchWord?.lowercased())!) }
+        self.filteredCities = self.cities.filter{ $0.name.lowercased().contains((searchWord?.lowercased())!) }
         
         tableView.reloadData()
         
         return true
+        
     }
-    
 }
 
