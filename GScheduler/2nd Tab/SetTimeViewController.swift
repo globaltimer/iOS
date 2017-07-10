@@ -147,6 +147,7 @@ class SetTimeViewController: UIViewController {
         
         super.viewDidLoad()
         
+        tableView.delegate   = self
         tableView.dataSource = self
         
         // Realmのパス
@@ -195,12 +196,18 @@ class SetTimeViewController: UIViewController {
 
     @IBAction func tap(_ sender: UIButton) {
         
+        guard !cities.isEmpty else {
+            print("なんもないよ　あぶねえ")
+            return
+        }
+        
         let title = ""
         let message = "\n\n\n\n\n\n\n\n"
         let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         
         let datePicker = UIDatePicker()
         
+        // ここでおちる！
         datePicker.timeZone = TimeZone(identifier: cities[pinedCityCell].timeZone)
         
         alert.view.addSubview(datePicker)
@@ -288,10 +295,13 @@ extension SetTimeViewController: UITableViewDataSource {
         
     }
     
+}
+
+
+extension SetTimeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == pinedCityCell { return 0 }
         return 75
     }
-    
 }
 
