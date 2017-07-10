@@ -48,11 +48,24 @@ class SetTimeViewController: UIViewController {
     
     func renewAllTimeLabels(adjustType: AdjustTimeType) {
         
-        if cities.isEmpty { return }
+        guard !cities.isEmpty else {
+            
+            // clear all previous data
+            
+            self.cityNameLabel.text         = ""
+            self.MDYLabel.text              = ""
+            self.timeLabel.text             = ""
+            self.timeAheadLabel.text        = ""
+            self.adjustTimeBeforeLabel.text = ""
+            self.adjustTimeNowLabel.text    = ""
+            self.adjustTimeAheadLabel.text  = ""
+            
+            return
+        }
         
         let before30m = Date(timeInterval: TimeInterval(-1800), since: fixedTime)
-        let newtral   = Date(timeInterval: TimeInterval(0),   since: fixedTime)
-        let after30m  = Date(timeInterval: TimeInterval(1800), since: fixedTime)
+        let newtral   = Date(timeInterval: TimeInterval(0),     since: fixedTime)
+        let after30m  = Date(timeInterval: TimeInterval(1800),  since: fixedTime)
         
         
         MDYLabel.text = DateUtils.stringFromDate(
@@ -182,13 +195,12 @@ class SetTimeViewController: UIViewController {
         // ↓のreloadは、↑のUserDefaultを呼んだ後でないとダメ
         tableView.reloadData()
         
-        
         // ラベルに表示する内容は、 viewWillAppearだと、早すぎる。こっちに書かないとだめ。
         if !cities.isEmpty {
             let pin = "\u{1F4CC} "
             cityNameLabel.text = pin + cities[pinedCityCell].name.uppercased()
         }
-
+        
         renewAllTimeLabels(adjustType: .none)
         
     }
@@ -196,10 +208,7 @@ class SetTimeViewController: UIViewController {
 
     @IBAction func tap(_ sender: UIButton) {
         
-        guard !cities.isEmpty else {
-            print("なんもないよ　あぶねえ")
-            return
-        }
+        guard !cities.isEmpty else { return }
         
         let title = ""
         let message = "\n\n\n\n\n\n\n\n"

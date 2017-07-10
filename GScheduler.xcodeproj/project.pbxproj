@@ -132,8 +132,8 @@
 		448ABC291E397AC60005958C /* 2nd (Set Time) */ = {
 			isa = PBXGroup;
 			children = (
-				448ABC2A1E397AFB0005958C /* SetTimeViewController.swift */,
 				448ABC2F1E397F350005958C /* SetTimeViewCell.swift */,
+				448ABC2A1E397AFB0005958C /* SetTimeViewController.swift */,
 				44008E4E1EBEEBA20088163A /* AboutViewController.swift */,
 				44008E501EBEF1F40088163A /* LicenseListViewController.swift */,
 				44CB94421EC8E16C003BA1AC /* TeamSalmonMemberListViewController.swift */,
