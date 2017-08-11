@@ -6,3 +6,9 @@
 ⌚  Awesome global clock app for iOS ⌚
 
 https://itunes.apple.com/us/app/global-timer/id1256645713?mt=8
+
+<div align="center">
+	<img src="https://github.com/creaaa/GlobalTimer/blob/master/Screenshots/gt1min.jpg" width="200px" height="356px" style="margin-right: 20px">
+	<img src="https://github.com/creaaa/GlobalTimer/blob/master/Screenshots/gt2min.jpg" width="200px" height="356px" style="margin-left: 20px; margin-right: 20px">
+	<img src="https://github.com/creaaa/GlobalTimer/blob/master/Screenshots/gt3min.jpg" width="200px" height="356px" style="margin-left: 20px">
+</div>
