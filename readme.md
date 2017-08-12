@@ -7,8 +7,8 @@ https://itunes.apple.com/us/app/global-timer/id1256645713?mt=8
 
 ## ⌚  Awesome global clock app for iOS ⌚
 
-“What time is it in Vancouver when it’s 8:00 AM in Tokyo?”
-“I wanna organize a global meeting. When is suitable for all our member?
+“What time is it in Vancouver when it’s 8:00 AM in Tokyo?”<br>
+“I wanna organize a global meeting. When is suitable for all our member?<br>
 
 Now it’s time to use this app! Only 2 steps, an awesome global clock for you is ready right now!
 
