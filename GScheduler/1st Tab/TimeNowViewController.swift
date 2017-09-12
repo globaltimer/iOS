@@ -46,7 +46,8 @@ class TimeNowViewController: UIViewController {
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.leftBarButtonItem?.tintColor = UIColor.white
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(
-        [NSFontAttributeName: UIFont(name: "quicksand", size: 18) as Any],
+            // [NSAttributedStringKey.fontNSAttributedStringKey.font: UIFont(name: "quicksand", size: 18) as Any],
+            [NSAttributedStringKey.font: UIFont(name: "quicksand", size: 18) as Any],
             for: .normal)
 
         // 初回起動時のみ
@@ -375,9 +376,9 @@ extension UILabel {
     func kern(kerningValue: CGFloat) {
         self.attributedText = NSAttributedString(
             string: self.text ?? "",
-            attributes: [NSKernAttributeName: kerningValue,
-                         NSFontAttributeName: font,
-                         NSForegroundColorAttributeName: self.textColor
+            attributes: [NSAttributedStringKey.kern: kerningValue,
+                         NSAttributedStringKey.font: font,
+                         NSAttributedStringKey.foregroundColor: self.textColor
             ]
         )
     }

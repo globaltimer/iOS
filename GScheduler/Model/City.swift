@@ -5,12 +5,12 @@ import RealmSwift
 class City: Object {
     
     // 管理用ID。プライマリーキー
-    dynamic var id = 0
-    dynamic var name = ""
-    dynamic var timeZone = ""
-    dynamic var isSelected = false
+    @objc dynamic var id = 0
+    @objc dynamic var name = ""
+    @objc dynamic var timeZone = ""
+    @objc dynamic var isSelected = false
     
-    dynamic var orderNo = -1
+    @objc dynamic var orderNo = -1
 
     /**
      id をプライマリーキーとして設定

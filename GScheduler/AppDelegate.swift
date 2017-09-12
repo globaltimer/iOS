@@ -1,7 +1,6 @@
 
 import UIKit
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,14 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // タブバーのテキストのラベル
         UITabBarItem.appearance().setTitleTextAttributes(
-            [ NSFontAttributeName: UIFont(name: quicksand, size: 10) as Any,
-              NSForegroundColorAttributeName: UIColor(red:0.13, green:0.55, blue:0.83, alpha:1.0) as Any
+            [ NSAttributedStringKey.font: UIFont(name: quicksand, size: 10) as Any,
+              NSAttributedStringKey.foregroundColor: UIColor(red:0.13, green:0.55, blue:0.83, alpha:1.0) as Any
             ]
             , for: .normal)
         
         // ナビゲーションバーのタイトル
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0),
-             NSFontAttributeName: UIFont(name: quicksand, size: 18) as Any
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0),
+                                                            NSAttributedStringKey.font: UIFont(name: quicksand, size: 18) as Any
         ]
         
         // ナビゲーションバーの背景色
@@ -35,8 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // ナビゲーションバー・ボタンの設定
         UIBarButtonItem.appearance().setTitleTextAttributes(
-            [ NSFontAttributeName: UIFont(name: quicksand, size: 16) as Any,
-              NSForegroundColorAttributeName: UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
+            [ NSAttributedStringKey.font: UIFont(name: quicksand, size: 16) as Any,
+              NSAttributedStringKey.foregroundColor: UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
               ],
             for: .normal)
 

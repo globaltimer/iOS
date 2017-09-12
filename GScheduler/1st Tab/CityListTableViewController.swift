@@ -39,7 +39,7 @@ class CityListViewController: UIViewController {
         
         navigationItem.leftBarButtonItem?.tintColor = UIColor.white
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(
-            [NSFontAttributeName: UIFont(name: "quicksand", size: 18) as Any],
+            [NSAttributedStringKey.font: UIFont(name: "quicksand", size: 18) as Any],
             for: .normal
         )
         
